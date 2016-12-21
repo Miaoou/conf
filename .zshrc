@@ -10,7 +10,7 @@
 ZSH_THEME="miaou"
 
 # Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -66,11 +66,11 @@ export wkp=/media/bgagnage/Data/wkp
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+ export EDITOR='vim'
+else
+ export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -87,5 +87,13 @@ export wkp=/media/bgagnage/Data/wkp
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias l="ls -lrtah --color"
+alias l="ls -lrth --color"
+alias ll="ls -lrtha --color"
 alias at="atom"
+alias sa='eval $(ssh-agent) && ssh-add'
+alias regInfos='STPDATA=/app/viaprod_data CALCULATEUR=ServeurIti /media/bgagnage/Data/wkp/codebase/ServeurIti/calcutil/cmd/regInfos'
+
+export FWK_CXX=`which g++-4.4`
+export FWK_CC=`which gcc-4.4`
+
+eval `keychain --eval --agents ssh id_rsa --quiet`
