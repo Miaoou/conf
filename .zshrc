@@ -9,6 +9,8 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="miaou"
 
+#export TERM="xterm-256color"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -87,6 +89,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vi="nvim"
 alias l="ls -lrth --color"
 alias ll="ls -lrtha --color"
 alias at="atom"
@@ -97,3 +100,6 @@ export FWK_CXX=`which g++-4.4`
 export FWK_CC=`which gcc-4.4`
 
 eval `keychain --eval --agents ssh id_rsa --quiet`
+
+# allow wildcards in commands
+unsetopt nomatch
