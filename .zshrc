@@ -60,7 +60,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export http_proxy="http://proxy.travelcom.michelin-travel.com:8080/"
 export https_proxy=$http_proxy
 export wkp=/media/bgagnage/Data/wkp
 
@@ -94,7 +93,6 @@ alias l="ls -lrth --color"
 alias ll="ls -lrtha --color"
 alias at="atom"
 alias sa='eval $(ssh-agent) && ssh-add'
-alias regInfos='STPDATA=/app/viaprod_data CALCULATEUR=ServeurIti /media/bgagnage/Data/wkp/codebase/ServeurIti/calcutil/cmd/regInfos'
 
 export FWK_CXX=`which g++-4.4`
 export FWK_CC=`which gcc-4.4`
