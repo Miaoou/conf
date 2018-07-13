@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/bgagnage/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="miaou"
+ZSH_THEME="af-magic"
 
 #export TERM="xterm-256color"
 
@@ -60,8 +60,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export https_proxy=$http_proxy
-export wkp=/media/bgagnage/Data/wkp
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -88,16 +86,28 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi="nvim"
 alias l="ls -lrth --color"
 alias ll="ls -lrtha --color"
-alias at="atom"
-alias sa='eval $(ssh-agent) && ssh-add'
 
-export FWK_CXX=`which g++-4.4`
-export FWK_CC=`which gcc-4.4`
+export wkp=/mnt/c/wkp
+eval $(keychain --eval --agents ssh id_ed25519 --quiet)
 
-eval `keychain --eval --agents ssh id_rsa --quiet`
+export myauth=$(cat ~/.myauth)
+
+if [ ! -z ${myauth+x} ]; then
+    export HTTP_PROXY=$http_proxy
+    export https_proxy=$http_proxy
+    export HTTPS_PROXY=$http_proxy
+fi
+
 
 # allow wildcards in commands
 unsetopt nomatch
+
+export LANG=en_GB.utf-8
+
+autoload -Uz add-zsh-hook
+auto_rehash () {
+    rehash
+}
+add-zsh-hook precmd auto_rehash
