@@ -91,6 +91,7 @@ fi
 
 alias l="ls -lrth --color"
 alias ll="ls -lrtha --color"
+alias vi="nvim"
 
 # allow wildcards in commands
 unsetopt nomatch
@@ -116,3 +117,5 @@ update_auth_sock() {
 }
 
 alias refresh-ssh="update_auth_sock"
+
+export PATH=$HOME/local/bin:$PATH
