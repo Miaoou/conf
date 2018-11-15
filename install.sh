@@ -4,7 +4,7 @@ cd $HOME
 LOCAL_DIR=$HOME/local
 mkdir $LOCAL_DIR
 echo "installing prerequisites..."
-apt update && sudo apt install -y zsh git ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip jq curl
+sudo apt update && sudo apt install -y zsh ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip jq curl
 
 echo "installing oh-my-zsh..."
 $(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)
