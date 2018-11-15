@@ -1,6 +1,5 @@
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -11,8 +10,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'kana/vim-operator-user'
-Plug 'Valloric/YouCompleteMe'
-Plug 'mustache/vim-mustache-handlebars'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'mustache/vim-mustache-handlebars'
 call plug#end()
 
 colorscheme iceberg
@@ -42,7 +41,7 @@ nnoremap <F4> <Esc>:NERDTreeToggle<CR>
 map <F2> <Esc>:tabprev<CR>
 map <F3> <Esc>:tabnext<CR>
 
-map <F12> <Esc>:YcmCompleter GoToDefinition<CR>
+"map <F12> <Esc>:YcmCompleter GoToDefinition<CR>
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
