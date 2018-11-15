@@ -28,13 +28,13 @@ cat > $HOME/.zshrc <<- EOM
 EOM
 
 if [ -z ${COMPILED_NEOVIM+x} ]; then
+	echo "installing neovim..."
+	sudo apt install neovim	
+else
 	echo "compiling and installing neovim..."
 	git clone https://github.com/neovim/neovim.git
 	NB_CPU=$(($(lscpu -e=cpu|wc -l) - 1))
 	cat < <(cd $HOME/neovim && make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$LOCAL_DIR -DCMAKE_BUILD_TYPE=Release" -j$NB_CPU && make install)
-else
-	echo "installing neovim..."
-	sudo apt install neovim	
 fi
 
 NVIM_CONFIG_DIR=$HOME/.config/nvim
