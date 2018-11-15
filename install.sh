@@ -39,6 +39,7 @@ fi
 
 NVIM_CONFIG_DIR=$HOME/.config/nvim
 mkdir -p $NVIM_CONFIG_DIR 
+rm $NVIM_CONFIG_DIR/init.vim
 ln -s $HOME/Miaoou/conf/init.vim $NVIM_CONFIG_DIR
 
 echo "installing vim-plug..."
