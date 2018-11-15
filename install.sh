@@ -39,7 +39,6 @@ fi
 
 NVIM_CONFIG_DIR=$HOME/.config/nvim
 mkdir -p $NVIM_CONFIG_DIR 
-rm $NVIM_CONFIG_DIR/init.vim
 ln -s $HOME/Miaoou/conf/init.vim $NVIM_CONFIG_DIR
 
 echo "installing vim-plug..."
@@ -47,5 +46,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 
 echo "installing neovim iceberg theme..."
 git clone https://github.com/cocopon/iceberg.vim.git
+rm -rf $NVIM_CONFIG_DIR/colors $NVIM_CONFIG_DIR/autoload
 ln -s $HOME/iceberg.vim/colors $NVIM_CONFIG_DIR
 ln -s $HOME/iceberg.vim/autoload $NVIM_CONFIG_DIR
