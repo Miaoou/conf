@@ -18,7 +18,13 @@ cd $HOME
 LOCAL_DIR=$HOME/local
 mkdir -p $LOCAL_DIR
 echo "installing prerequisites..."
-sudo apt update && sudo apt install -y zsh ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip jq curl tmux
+sudo apt update && sudo apt install -y zsh ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip jq curl tmux gnupg2 gnupg-agent cryptsetup scdaemon pcscd
+
+echo "installing gpg..."
+mkdir ~/.gnupg
+curl -Lfo ~/.gnupg/gpg.conf https://raw.githubusercontent.com/drduh/config/master/gpg.conf
+gpg --keyserver hkps.pool.sks-keyservers.net --recv 0x2EE00B95EA60F76D
+echo -e "trust\n5\ny" | gpg --command-fd=0 --edit-key 0x2EE00B95EA60F76D
 
 echo "installing oh-my-zsh..."
 curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > /dev/null 
@@ -50,3 +56,6 @@ git clone https://github.com/cocopon/iceberg.vim.git
 rm -rf $NVIM_CONFIG_DIR/colors $NVIM_CONFIG_DIR/autoload
 ln -s $HOME/iceberg.vim/colors $NVIM_CONFIG_DIR
 ln -s $HOME/iceberg.vim/autoload $NVIM_CONFIG_DIR
+
+echo "installing tmux config..."
+ln -s $HOME/Miaoou/conf/.tmux.conf $HOME
