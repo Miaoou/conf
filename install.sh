@@ -23,6 +23,8 @@ sudo apt update && sudo apt install -y zsh ninja-build gettext libtool libtool-b
 echo "installing gpg..."
 mkdir ~/.gnupg
 curl -Lfo ~/.gnupg/gpg.conf https://raw.githubusercontent.com/drduh/config/master/gpg.conf
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
 gpg --keyserver hkps.pool.sks-keyservers.net --recv 0x2EE00B95EA60F76D
 echo -e "trust\n5\ny" | gpg --command-fd=0 --edit-key 0x2EE00B95EA60F76D
 
